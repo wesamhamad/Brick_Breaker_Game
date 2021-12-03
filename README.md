@@ -151,6 +151,24 @@ I faced two problems while developing this game :
 ```
 
 ## Output Sample
+### Case #1 (Level2)
+
+
+
+https://user-images.githubusercontent.com/74800962/144668766-1bd21ee7-c1ed-4ad5-a2b8-b905cec42aad.mov
+
+``
+NOTE: To have the whole experience, make sure video is not silent!
+``
+### Case #2 (SetUp Yours!)
+
+
+https://user-images.githubusercontent.com/74800962/144670308-311a3e03-6029-4e20-82f0-312789ffd1e9.mov
+
+ ``
+NOTE: There is a limitation for player input, but I don’t show a message that's says, instead it’s show a dialogue box (if he enter a value greater than 13 or less than 3) to informed the player as shown above .
+``
+ 
 
 ## Learning References :
 * [Joel Rogness](https://www.youtube.com/watch?v=Qc_OlE1Xn38&list=PLn6h3KPOiM-ErYSmMH1ULtyKTE765d0V3&index=1) tutorials
