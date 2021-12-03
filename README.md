@@ -7,7 +7,7 @@ The goal of the project was to create an implementation of the Brick Breaker gam
 It has the following game mechanics: 
 * **Graphics :** plain colors and simple images.
 * **Sound effects:** different sound effects for each possible game event (e.g. hitting a brick, hitting a powerUp, hitting the paddle...).
-* **Score:** each time the ball breaks a brick or the paddle hit the blue ball , score will increases by 10. But, when the ball hits the paddle hit the fire score will reduce by 10.
+* **Score:** each time the ball breaks a brick or the paddle hit the blue ball , score will increases by 10. But, when paddle hit the fire score will reduce by 10.
 *  **Animation:** each time the ball hit the yellow brick screen shaked and destroyed the brick into smaller pices. 
 
 * **Multiple brick types:** there is four types of brick:
