@@ -11,9 +11,8 @@ It has the following game mechanics:
 *  **Animation:** each time the ball hit the yellow brick screen shaked and destroyed the brick into smaller pices. 
 
 * **Multiple brick types:** there is four types of brick:
-  * Yellow  bricks: this is the basic brick, it just waits to be broken;
-  * Orange bricks: this is almost the same as the White brick, but needs two hits instead of one to break.
-  * Red bricks:  needs three hits to break.
+  * Yellow & Orange bricks: this is the basic brick, it just waits to be broken;
+  * Red bricks: this is almost the same as the Yellow brick, but needs two hits instead of one to break.
   * Blue bricks: this bricks moves horizontally as either a blue ball (which extends size of paddle) or a fire (which shrink size of paddle).
 
 **Levels with different settings:** there are three different settings (Easy, Normal and Hard) also, user can choose his own !
@@ -35,6 +34,7 @@ It has the following game mechanics:
 
 **SetUp Yours :** this allows user to choose number of rows and columns and it's have same sittings of Level2
 
+How Levels done?by click button the constructor of GameWindow with the level as an argument will call in [LaunchPage]() class,then [GameWindow]() class will called the constructor of GamePanel in order to send the level and to start the game by calling the playGame method,then inside init function I specify the number of regtangles and fast of ball base on level as shown here :
 ```java
    //fast of the ball base on level
         if(currentLevel == 3){ theBall = new Ball(6,9);
@@ -53,8 +53,39 @@ It has the following game mechanics:
         }else 
             if(currentLevel == 4){theMap = new Map(LaunchPage.getUserRows(), LaunchPage.getUserColumns());}
 ```
+**Also** in [Map]() class inside initMap method which is assigned randomly number 1-3 for each brick, and at end of the loop the PowerUps values will assigned base on currentLevel value. 4 for blue ball and 5 for fire .
 
-**These all done by help of**  JFrame and JPanels and other useful classes: Image, Dimension, Point, Color, Font, and Graphics. These classes are imported and then  used in GUI . I use the Graphics, to render visuals (e.g., figures, pictures, and even text) in a JPanel that contains the graphics part of a JFrame.    
+```java
+public void initMap(int row , int col) {
+
+        int []random = new int [4];
+        for (int i = 0; i < random.length; i++) {
+                random[i] = rand.nextInt(4);
+        }
+
+        theMap = new int[row][col];
+
+        for (int i = 0; i < theMap.length; i++) {
+
+            //powerUp value base on level
+            if((GamePanel.currentLevel == GamePanel.LEVEL2 || GamePanel.currentLevel == GamePanel.SETUP_LEVEL) && (i == theMap.length-1)){
+                theMap[random[0]][random[1]] = PowerUp.WIDEPADDLE;
+                theMap[random[2]][random[3]] = PowerUp.REDUCEPADDLE;
+            }else if((GamePanel.currentLevel == GamePanel.LEVEL3) && (i == theMap.length-1) ){
+                theMap[random[0]][random[1]] = PowerUp.WIDEPADDLE;
+                theMap[random[2]][random[0]] = PowerUp.REDUCEPADDLE;
+                theMap[random[1]][random[0]] = PowerUp.WIDEPADDLE;
+                theMap[random[2]][random[3]] = PowerUp.REDUCEPADDLE;
+            }
+
+            for (int j = 0; j < theMap[0].length; j++) {
+                theMap[i][j] = (int)(Math.random() * 3 +1);
+            }
+        }
+    }
+```
+
+**These all done by help of**  JFrame and JPanels and other useful classes: Image,File,Color, Font, and Graphics. These classes are imported and then  used in GUI . I use the Graphics, to render visuals (e.g., figures, pictures, and even text) in a JPanel that contains the graphics part of a JFrame.    
 
 
 ## Additional Features Implemented
@@ -72,8 +103,8 @@ Beyond the scope of the project, I implemented the following additional features
 
 | Keys              | Action                                     |
 | ----------------- | -------------------------------------------|
-| Arrow Keys        | Moves the paddel left and right            |
-| Mouse over paddel |     --------------                         |
+| Arrow Keys        |     Moves the paddel left and right        |
+| Mouse over paddel |     Moves the paddel left and right        |
 
 ## How To Play
 * Clone the repository to your computer 
@@ -84,15 +115,11 @@ Beyond the scope of the project, I implemented the following additional features
 * Simply click run within the IDE.
 * The game should open up in a JAR applet.
 
-
-## Output Sample
-
-
 ## Problems 
 
 I faced two problems while developing this game :
 
-**1-** I Create separate JFrame in order to implement gui for levels, so in main I call constructor of [LaunchPage.java]() class which create the SetUp frame then call the thePanel.playGame() method to start the game, but the frame of game doesn’t show the graphics, these two frames have effects each other, so I use Thread for each level (calling of playGame to start the game )
+**1-** I Create separate JFrame in order to implement gui for levels, so in main I call constructor of [LaunchPage]() class which create the SetUp frame then call the thePanel.playGame() method to start the game, but the frame of game doesn’t show the graphics, these two frames have effects each other, so I solve it by useing Thread in order to preform both at same time without effecting of each other.
 
 ```java
  if(e.getSource() == level1 ) {// if level1 button is clicked start the thread and generate the action 
@@ -104,7 +131,7 @@ I faced two problems while developing this game :
                 }
             }.start();
 ```
-**2-** When I use KeyListener interface, in order to move the paddle, it's could going off the left&right-hand side of screen, I solve ot by updating the position (in keyReleased method) each time it’s going off .
+**2-** When I use KeyListener interface, in order to move the paddle, it's could going off the left&right-hand side of screen, I solve it by updating the position (in keyReleased method) each time it’s going off .
 
 ```java
    public void keyReleased(int k) {
@@ -123,6 +150,12 @@ I faced two problems while developing this game :
     }
 ```
 
+## Output Sample
+
+## Learning References :
+* [Joel Rogness](https://www.youtube.com/watch?v=Qc_OlE1Xn38&list=PLn6h3KPOiM-ErYSmMH1ULtyKTE765d0V3&index=1) tutorials
+* [Bro Code](https://www.youtube.com/channel/UC4SVo0Ue36XCfOyb5Lh1viQ) tutorials
+* [Ali Qusay](https://www.youtube.com/watch?v=NDh4B3gb8V4) Java GUI Tutorial | controls using KeyListener
 ## CONTRIBUTING
 **How Can I Contribute?**
 When you are ready to start work on an issue:
@@ -134,4 +167,5 @@ If you don't see your idea/issue listed, do one of the following:
 
 * ***If your contribution is minor***, such as a typo fix, you can directly open a pull request.
 * ***If your contribution is major***, such as a new feature/enhancement, start by opening an issue first. This way, other people can be also involved in the discussion before you do any work.
+
 
