@@ -73,7 +73,7 @@ I faced two problems while developing this game :
 **1-** I Create separate JFrame in order to implement gui for levels, so in main I call constructor of [LaunchPage.java]() class which create the SetUp frame then call the thePanel.playGame() method to start the game, but the frame of game doesn’t show the graphics, these two frames have effects each other, so I use Thread for each level (calling of playGame to start the game )
 
 ```java
- if(e.getSource() == level1 ) {// if level1 is clicked generate the action
+ if(e.getSource() == level1 ) {// if level1 button is clicked start the thread and generate the action 
 
             frame.dispose();
             new Thread(){
@@ -82,7 +82,25 @@ I faced two problems while developing this game :
                 }
             }.start();
 ```
-**2-** When I use KeyListener the whole panel moves when I press key arrows, I solve it by using 
+**2-** When I use KeyListener interface, in order to move the paddle, it's could going off the left&right-hand side of screen, I solve ot by updating the position (in keyReleased method) each time it’s going off .
+
+```java
+   public void keyReleased(int k) {
+        if(k == KeyEvent.VK_LEFT){
+            left = false;
+            if (x < Main.WIDTH -  width * 10.2) {
+                x = Main.WIDTH - width * 10.2; // to prevent paddle from going off the left-hand side
+            }
+        }
+        if(k == KeyEvent.VK_RIGHT){
+            right = false;
+            if (x > Main.WIDTH - width) {
+                x = Main.WIDTH - width *1.2; // to prevent paddle from going off the right-hand side
+            }
+        }
+    }
+```
+
 ## CONTRIBUTING
 **How Can I Contribute?**
 When you are ready to start work on an issue:
