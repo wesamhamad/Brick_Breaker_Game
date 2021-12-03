@@ -169,7 +169,7 @@ https://user-images.githubusercontent.com/74800962/144670308-311a3e03-6029-4e20-
 NOTE: There is a limitation for player input, but I don’t show a message that's says, instead it’s show a dialogue box (if he enter a value greater than 13 or less than 3) to informed the player as shown above .
 ``
  
-
+To see [other Case]() of the output.
 ## Learning References :
 * [Joel Rogness](https://www.youtube.com/watch?v=Qc_OlE1Xn38&list=PLn6h3KPOiM-ErYSmMH1ULtyKTE765d0V3&index=1) tutorials
 * [Bro Code](https://www.youtube.com/channel/UC4SVo0Ue36XCfOyb5Lh1viQ) tutorials
