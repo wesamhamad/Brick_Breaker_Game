@@ -36,22 +36,33 @@ It has the following game mechanics:
 
 How Levels done?by click button the constructor of GameWindow with the level as an argument will call in [LaunchPage]() class,then [GameWindow]() class will called the constructor of GamePanel in order to send the level and to start the game by calling the playGame method,then inside init function I specify the number of regtangles and fast of ball base on level as shown here :
 ```java
-   //fast of the ball base on level
-        if(currentLevel == 3){ theBall = new Ball(6,9);
+
+       //fast of the ball base on level
+        if(currentLevel == LEVEL3){ 
+            theBall = new Ball(6,9);
         }else
-            if(currentLevel == 2 || currentLevel == 4){theBall = new Ball(5,7);
+            if(currentLevel == LEVEL2 || currentLevel == SETUP_LEVEL){
+                theBall = new Ball(5,7);
             } else{
                 theBall = new Ball(4,6);
             }
-            
-  // number of rectangles base on level
-        if(currentLevel == 1){theMap = new Map(4, 6);
-        }else 
-            if(currentLevel == 2){theMap = new Map(5, 8);
-        }else 
-            if(currentLevel == 3){theMap = new Map(6, 9);
-        }else 
-            if(currentLevel == 4){theMap = new Map(LaunchPage.getUserRows(), LaunchPage.getUserColumns());}
+
+        thePaddle = new Paddle(100, 30);// size of Paddle
+
+        // number of rectangles base on level
+        if(currentLevel == LEVEL1){
+            theMap = new Map(4, 6);
+        }else
+            if(currentLevel == LEVEL2){
+                theMap = new Map(5, 8);
+        }else
+            if(currentLevel == LEVEL3){
+                theMap = new Map(6, 9);
+        }else
+            if(currentLevel == SETUP_LEVEL){
+                theMap = new Map(LaunchPage.getUserRows(), LaunchPage.getUserColumns());
+            }
+
 ```
 **Also** in [Map]() class inside initMap method which is assigned randomly number 1-3 for each brick, and at end of the loop the PowerUps values will assigned base on currentLevel value. 4 for blue ball and 5 for fire .
 
