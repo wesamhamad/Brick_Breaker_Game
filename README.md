@@ -8,35 +8,53 @@ It has the following game mechanics:
 * **Graphics :** plain colors and simple images.
 * **Sound effects:** different sound effects for each possible game event (e.g. hitting a brick, hitting a powerUp, hitting the paddle...).
 * **Score:** each time the ball breaks a brick or the paddle hit the blue ball , score will increases by 10. But, when the ball hits the paddle hit the fire score will reduce by 10.
+*  **Animation:** each time the ball hit the yellow brick screen shaked and destroyed the brick into smaller pices. 
 
 * **Multiple brick types:** there is four types of brick:
   * Yellow  bricks: this is the basic brick, it just waits to be broken;
   * Orange bricks: this is almost the same as the White brick, but needs two hits instead of one to break.
   * Red bricks:  needs three hits to break.
-  * Blue bricks: this bricks moves horizontally as either a blue ball or a fire.
+  * Blue bricks: this bricks moves horizontally as either a blue ball (which extends size of paddle) or a fire (which shrink size of paddle).
 
 **Levels with different settings:** there are three different settings (Easy, Normal and Hard) also, user can choose his own !
 
 **Easy (Level1):** this level have :
- 1- 4x6 bricks 
- 2- slowly movement of ball
- 3- have no powerUp (blue bricks)
+ *  4x6 bricks
+ *  slowly movement of ball
+ *  have no powerUp (blue bricks)
 
 **Normal (Level2):** this level have :
- 1- 5x8 bricks 
- 2- normal movement of ball
- 3- have two powerUp (blue bricks)
+ * 5x8 bricks 
+ * normal movement of ball
+ * have two powerUp (blue bricks)
  
 **Hard (Level3):** this level have :
- 1- 6x9 bricks 
- 2- fast movement of ball
- 3- have four powerUp (blue bricks)
+ * 6x9 bricks 
+ * fast movement of ball
+ * have four powerUp (blue bricks )
 
 **SetUp Yours :** this allows user to choose number of rows and columns and it's have same sittings of Level2
 
+```java
+   //fast of the ball base on level
+        if(currentLevel == 3){ theBall = new Ball(6,9);
+        }else
+            if(currentLevel == 2 || currentLevel == 4){theBall = new Ball(5,7);
+            } else{
+                theBall = new Ball(4,6);
+            }
+            
+  // number of rectangles base on level
+        if(currentLevel == 1){theMap = new Map(4, 6);
+        }else 
+            if(currentLevel == 2){theMap = new Map(5, 8);
+        }else 
+            if(currentLevel == 3){theMap = new Map(6, 9);
+        }else 
+            if(currentLevel == 4){theMap = new Map(LaunchPage.getUserRows(), LaunchPage.getUserColumns());}
+```
 
-
-**These all done by help of**  JFrame and JPanels and other useful classes: Image, Dimension, Point, Color, Font, and Graphics. These classes are imported and then  used in GUI . We use the last, Graphics, to render visuals (e.g., figures, pictures, and even text) in a JPanel that contains the graphics part of a JFrame.    
+**These all done by help of**  JFrame and JPanels and other useful classes: Image, Dimension, Point, Color, Font, and Graphics. These classes are imported and then  used in GUI . I use the Graphics, to render visuals (e.g., figures, pictures, and even text) in a JPanel that contains the graphics part of a JFrame.    
 
 
 ## Additional Features Implemented
@@ -65,6 +83,10 @@ Beyond the scope of the project, I implemented the following additional features
 * Import the project into your IDE (IntelliJIDEA is recommended)
 * Simply click run within the IDE.
 * The game should open up in a JAR applet.
+
+
+## Output Sample
+
 
 ## Problems 
 
