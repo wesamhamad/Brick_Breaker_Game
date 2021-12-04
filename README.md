@@ -34,7 +34,7 @@ It has the following game mechanics:
 
 **SetUp Yours :** this allows user to choose number of rows and columns and it's have same sittings of Level2
 
-How Levels done?by click button the constructor of GameWindow with the level as an argument will call in [LaunchPage]() class,then [GameWindow]() class will called the constructor of GamePanel in order to send the level and to start the game by calling the playGame method,then inside init function I specify the number of regtangles and fast of ball base on level as shown here :
+How Levels done?by click button the constructor of GameWindow with the level as an argument will call in [LaunchPage](https://github.com/wesamhamad/Brick_Breaker_Game/blob/main/src/LaunchPage.java) class,then [GameWindow](https://github.com/wesamhamad/Brick_Breaker_Game/blob/main/src/GameWindow.java) class will called the constructor of GamePanel in order to send the level and to start the game by calling the playGame method,then inside init function I specify the number of regtangles and fast of ball base on level as shown here :
 ```java
 
        //fast of the ball base on level
@@ -64,7 +64,7 @@ How Levels done?by click button the constructor of GameWindow with the level as 
             }
 
 ```
-**Also** in [Map]() class inside initMap method which is assigned randomly number 1-3 for each brick, and at end of the loop the PowerUps values will assigned base on currentLevel value. 4 for blue ball and 5 for fire .
+**Also** in [Map](https://github.com/wesamhamad/Brick_Breaker_Game/blob/main/src/Map.java) class inside initMap method which is assigned randomly number 1-3 for each brick, and at end of the loop the PowerUps values will assigned base on currentLevel value. 4 for blue ball and 5 for fire .
 
 ```java
 public void initMap(int row , int col) {
@@ -110,6 +110,10 @@ Beyond the scope of the project, I implemented the following additional features
 <p > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img  width="900" alt="GUI" src="https://user-images.githubusercontent.com/74800962/144532375-d53aab53-7d62-474f-a04e-48d6b577e994.png" />
 </p>
 
+``
+NOTE: The output may be a little different on your computer that’s happening because of different platforms .
+``
+
 ## Controls
 
 | Keys              | Action                                     |
@@ -130,7 +134,7 @@ Beyond the scope of the project, I implemented the following additional features
 
 I faced two problems while developing this game :
 
-**1-** I Create separate JFrame in order to implement gui for levels, so in main I call constructor of [LaunchPage]() class which create the SetUp frame then call the thePanel.playGame() method to start the game, but the frame of game doesn’t show the graphics, these two frames have effects each other, so I solve it by useing Thread in order to preform both at same time without effecting of each other.
+**1-** I Create separate JFrame in order to implement gui for levels, so in main I call constructor of [LaunchPage](https://github.com/wesamhamad/Brick_Breaker_Game/blob/main/src/LaunchPage.java) class which create the SetUp frame then call the thePanel.playGame() method to start the game, but the frame of game doesn’t show the graphics, these two frames have effects each other, so I solve it by useing Thread in order to preform both at same time without effecting of each other.
 
 ```java
  if(e.getSource() == level1 ) {// if level1 button is clicked start the thread and generate the action 
@@ -180,7 +184,7 @@ https://user-images.githubusercontent.com/74800962/144670308-311a3e03-6029-4e20-
 NOTE: There is a limitation for player input, but I don’t show a message that's says, instead it’s show a dialogue box (if he enter a value greater than 13 or less than 3) to informed the player as shown above .
 ``
  
-To see [other Case]() of the output.
+To see [other Case](https://github.com/wesamhamad/Brick_Breaker_Game/tree/main/Output) of the output.
 ## Learning References :
 * [Joel Rogness](https://www.youtube.com/watch?v=Qc_OlE1Xn38&list=PLn6h3KPOiM-ErYSmMH1ULtyKTE765d0V3&index=1) tutorials
 * [Bro Code](https://www.youtube.com/channel/UC4SVo0Ue36XCfOyb5Lh1viQ) tutorials
