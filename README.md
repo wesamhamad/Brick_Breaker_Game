@@ -34,7 +34,7 @@ It has the following game mechanics:
 
 **SetUp Yours :** this allows user to choose number of rows and columns and it's have same sittings of Level2
 
-How Levels done ? by click button the constructor of [GameWindow](https://github.com/wesamhamad/Brick_Breaker_Game/blob/main/src/GameWindow.java) with the level as an argument will call in [LaunchPage](https://github.com/wesamhamad/Brick_Breaker_Game/blob/main/src/LaunchPage.java) class,then [GameWindow](https://github.com/wesamhamad/Brick_Breaker_Game/blob/main/src/GameWindow.java) class will called the constructor of GamePanel in order to send the level and to start the game by calling the playGame method,then inside init function I specify the number of regtangles and fast of ball base on level as shown here :
+How Levels done ? by click button the constructor of GameWindow with the level as an argument will call in [LaunchPage](https://github.com/wesamhamad/Brick_Breaker_Game/blob/main/src/LaunchPage.java) class,then [GameWindow](https://github.com/wesamhamad/Brick_Breaker_Game/blob/main/src/GameWindow.java) class will called the constructor of [GamePanel](https://github.com/wesamhamad/Brick_Breaker_Game/blob/main/src/GamePanel.java) in order to send the level and to start the game by calling the playGame method,then inside init function I specify the number of regtangles and fast of ball base on level as shown here :
 ```java
 
        //fast of the ball base on level
