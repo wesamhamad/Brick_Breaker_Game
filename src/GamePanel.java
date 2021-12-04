@@ -122,7 +122,7 @@ public class GamePanel extends JPanel { // means is a type of JPanel
     public void playGame() {
 
         drawStart();
-        playSound("file:./Resources/Pokemon-Song-.aiff", 0);
+        playSound("file:./Resources/Pokemon-Song-.aiff", 2);
 
         // Game Loop
         while (running) {
