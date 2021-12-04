@@ -34,7 +34,7 @@ It has the following game mechanics:
 
 **SetUp Yours :** this allows user to choose number of rows and columns and it's have same sittings of Level2
 
-How Levels done ? by click button the constructor of GameWindow with the level as an argument will call in [LaunchPage](https://github.com/wesamhamad/Brick_Breaker_Game/blob/main/src/LaunchPage.java) class,then [GameWindow](https://github.com/wesamhamad/Brick_Breaker_Game/blob/main/src/GameWindow.java) class will called the constructor of [GamePanel](https://github.com/wesamhamad/Brick_Breaker_Game/blob/main/src/GamePanel.java) in order to send the level and to start the game by calling the playGame method,then inside init function I specify the number of regtangles and fast of ball base on level as shown here :
+How Levels done ? by click one of level buttons the constructor of GameWindow with the level as an argument will call in [LaunchPage](https://github.com/wesamhamad/Brick_Breaker_Game/blob/main/src/LaunchPage.java) class,then [GameWindow](https://github.com/wesamhamad/Brick_Breaker_Game/blob/main/src/GameWindow.java) class will called the constructor of [GamePanel](https://github.com/wesamhamad/Brick_Breaker_Game/blob/main/src/GamePanel.java) in order to send the level and to start the game by calling the playGame method,then inside init function I specify the number of regtangles and fast of ball base on level as shown here :
 ```java
 
        //fast of the ball base on level
@@ -134,7 +134,7 @@ NOTE: The output may be a little different on your computer that’s happening b
 
 I faced two problems while developing this game :
 
-**1-** I Create separate JFrame in order to implement gui for levels, so in main I call constructor of [LaunchPage](https://github.com/wesamhamad/Brick_Breaker_Game/blob/main/src/LaunchPage.java) class which create the SetUp frame then call the thePanel.playGame() method to start the game, but the frame of game doesn’t show the graphics, these two frames have effects each other, so I solve it by useing Thread in order to preform both at same time without effecting of each other.
+**1-** I Create separate JFrame in order to implement GUI for levels, so in main I call constructor of [LaunchPage](https://github.com/wesamhamad/Brick_Breaker_Game/blob/main/src/LaunchPage.java) class which create the SetUp frame then call the thePanel.playGame() method to start the game, but the frame of game doesn’t show the graphics, these two frames have effects each other, so I solve it by useing Thread in order to preform both at same time without effecting of each other.
 
 ```java
  if(e.getSource() == level1 ) {// if level1 button is clicked start the thread and generate the action 
